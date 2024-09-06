@@ -1,0 +1,42 @@
+# Ignore build artifacts and directories
+build/
+cpp/bin/
+cpp/obj/
+python/__pycache__/
+python/tests/__pycache__/
+
+# Ignore compiled binaries
+*.exe
+*.out
+*.o
+*.a
+*.so
+*.dll
+
+# Ignore Python virtual environment
+venv/
+env/
+
+# Ignore IDE and editor-specific files
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.vscode/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+*.swp
+*.swo
+
+# Ignore CMake cache files
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
