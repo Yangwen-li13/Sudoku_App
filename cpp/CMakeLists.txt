@@ -1,5 +1,9 @@
+# cpp/CMakeLists.txt
+
 # Define the directory for binaries and include
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/cpp/bin)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/cpp/bin)
+
+# Include the directory with header files
 include_directories(${CMAKE_SOURCE_DIR}/cpp/include)
 
 # Find source files

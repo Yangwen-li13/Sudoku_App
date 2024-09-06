@@ -1,7 +1,10 @@
-#include "include/solver.h"
+#include <iostream>
 #include <vector>
+#include "solver.h"
 
 int main() {
+    std::cout << "Starting Sudoku Solver..." << std::endl;
+
     // Initialize a 9x9 Sudoku grid with some pre-filled values (0 indicates an empty cell)
     std::vector<std::vector<int>> grid = {
         {5, 3, 0, 0, 7, 0, 0, 0, 0},
@@ -15,8 +18,14 @@ int main() {
         {0, 0, 0, 0, 8, 0, 0, 7, 9}
     };
 
+    std::cout << "Grid initialized." << std::endl;
+
     SudokuSolver solver;
+
+    std::cout << "Solving Sudoku..." << std::endl;
+
     if (solver.solve(grid)) {
+        std::cout << "Solution found:" << std::endl;
         solver.printGrid(grid);
     } else {
         std::cout << "No solution exists!" << std::endl;
