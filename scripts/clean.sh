@@ -1,4 +1,3 @@
-
 BUILD_DIR="build"
 BIN_DIR="cpp/bin"
 

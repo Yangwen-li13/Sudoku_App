@@ -6,36 +6,29 @@
 
 class SudokuSolver {
 public:
-    // Constructor
     SudokuSolver() {}
 
-    // Function to solve the Sudoku puzzle using backtracking
     bool solve(std::vector<std::vector<int>>& grid) {
         int row, col;
 
-        // If no empty cell is found, the puzzle is solved
         if (!findEmptyCell(grid, row, col)) {
-            return true;  // Puzzle solved
+            return true;  
         }
 
-        // Try placing digits 1 to 9 in the empty cell
         for (int num = 1; num <= 9; ++num) {
-            // Check if the current number can be placed
+
             if (isValid(grid, row, col, num)) {
-                // Place the number
+
                 grid[row][col] = num;
 
-                // Recursively try to solve the rest of the grid
                 if (solve(grid)) {
                     return true;
                 }
 
-                // If the solution doesn't work, backtrack by removing the number
                 grid[row][col] = 0;
             }
         }
 
-        // If no number works, return false (triggering backtracking)
         return false;
     }
 
@@ -75,9 +68,7 @@ private:
                     return false;
                 }
             }
-        }
 
-        // The number can be placed
         return true;
     }
 
@@ -86,11 +77,11 @@ private:
         for (row = 0; row < 9; ++row) {
             for (col = 0; col < 9; ++col) {
                 if (grid[row][col] == 0) {
-                    return true;  // Found an empty cell
+                    return true;
                 }
             }
         }
-        return false;  // No empty cells left
+        return false;
     }
 };
 

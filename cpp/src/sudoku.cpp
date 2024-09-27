@@ -1,11 +1,11 @@
+// This file is to test algorithms for the reason that impelemnting code later in python.
+
 #include <iostream>
 #include <vector>
 #include "solver.h"
 
 int main() {
-    std::cout << "Starting Sudoku Solver..." << std::endl;
 
-    // Initialize a 9x9 Sudoku grid with some pre-filled values (0 indicates an empty cell)
     std::vector<std::vector<int>> grid = {
         {5, 3, 0, 0, 7, 0, 0, 0, 0},
         {6, 0, 0, 1, 9, 5, 0, 0, 0},
@@ -17,8 +17,6 @@ int main() {
         {0, 0, 0, 4, 1, 9, 0, 0, 5},
         {0, 0, 0, 0, 8, 0, 0, 7, 9}
     };
-
-    std::cout << "Grid initialized." << std::endl;
 
     SudokuSolver solver;
 
