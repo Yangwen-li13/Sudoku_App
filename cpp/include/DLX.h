@@ -48,7 +48,6 @@ private:
     std::vector<DLXNode*> solution;
     std::vector<std::vector<int>> solutions;  // Store multiple solutions
     int numSolutions;
-    bool foundFirstSolution = false;          // Track if the first solution is found
 
     // Unlink an entire column from the matrix
     void cover(DLXNode* col) {
@@ -76,8 +75,7 @@ private:
             // Solution found
             recordSolution();
             numSolutions++;
-            foundFirstSolution = true;  // Mark that we found the first solution
-            return;
+            return;  // Continue searching for all solutions
         }
 
         // Choose the column with the least nodes
@@ -98,9 +96,6 @@ private:
             }
 
             solution.pop_back();
-
-            // Stop searching after finding the first solution
-            if (foundFirstSolution) return;
         }
 
         uncover(col);
@@ -195,8 +190,8 @@ public:
         }
     }
 
-    // Solve the Sudoku puzzle and stop after finding one solution
-    void solveOne() {
+    // Solve the Sudoku puzzle and continue to find all solutions
+    void solveAll() {
         search(0);
     }
 
@@ -209,6 +204,29 @@ public:
             std::cout << std::endl;
         }
     }
+
+    // Print all solutions
+    void printAllSolutions() {
+        if (solutions.empty()) {
+            std::cout << "No solutions found." << std::endl;
+        } else {
+            int solutionNum = 1;
+            for (const auto& solution : solutions) {
+                std::cout << "Solution #" << solutionNum++ << ":" << std::endl;
+                printGrid(solution);
+                std::cout << std::endl;
+            }
+        }
+    }
+
+    // Return the number of solutions found
+    int getNumSolutions() const {
+        return numSolutions;
+    }
+};
+
+#endif // SUDOKU_SOLVER_DLX_H
+
 
     // Print only the first solution
     void printOneSolution() {
